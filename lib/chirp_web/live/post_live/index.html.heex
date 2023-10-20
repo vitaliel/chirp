@@ -1,0 +1,27 @@
+<.header>
+  Timeline
+  <:actions>
+    <.link patch={~p"/posts/new"}>
+      <.button>New Post</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<div id="posts" phx-update={match?(%Phoenix.LiveView.LiveStream{}, @streams.posts) && "stream"}>
+  <.live_component :for={{_id, post} <- @streams.posts}
+    module={ChirpWeb.PostLive.PostComponent}
+    id={_id}
+    post={post}
+  />
+</div>
+
+<.modal :if={@live_action in [:new, :edit]} id="post-modal" show on_cancel={JS.patch(~p"/posts")}>
+  <.live_component
+    module={ChirpWeb.PostLive.FormComponent}
+    id={@post.id || :new}
+    title={@page_title}
+    action={@live_action}
+    post={@post}
+    patch={~p"/posts"}
+  />
+</.modal>
