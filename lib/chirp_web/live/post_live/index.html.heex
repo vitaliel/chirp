@@ -8,7 +8,8 @@
 </.header>
 
 <div id="posts" phx-update={match?(%Phoenix.LiveView.LiveStream{}, @streams.posts) && "stream"}>
-  <.live_component :for={{_id, post} <- @streams.posts}
+  <.live_component
+    :for={{_id, post} <- @streams.posts}
     module={ChirpWeb.PostLive.PostComponent}
     id={_id}
     post={post}

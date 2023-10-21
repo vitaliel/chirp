@@ -21,7 +21,12 @@ defmodule Chirp.TimelineTest do
     end
 
     test "create_post/1 with valid data creates a post" do
-      valid_attrs = %{body: "some body", username: "some username", likes_count: 42, reposts_count: 42}
+      valid_attrs = %{
+        body: "some body",
+        username: "some username",
+        likes_count: 42,
+        reposts_count: 42
+      }
 
       assert {:ok, %Post{} = post} = Timeline.create_post(valid_attrs)
       assert post.body == "some body"
@@ -36,7 +41,13 @@ defmodule Chirp.TimelineTest do
 
     test "update_post/2 with valid data updates the post" do
       post = post_fixture()
-      update_attrs = %{body: "some updated body", username: "some updated username", likes_count: 43, reposts_count: 43}
+
+      update_attrs = %{
+        body: "some updated body",
+        username: "some updated username",
+        likes_count: 43,
+        reposts_count: 43
+      }
 
       assert {:ok, %Post{} = post} = Timeline.update_post(post, update_attrs)
       assert post.body == "some updated body"

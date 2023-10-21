@@ -4,8 +4,18 @@ defmodule ChirpWeb.PostLiveTest do
   import Phoenix.LiveViewTest
   import Chirp.TimelineFixtures
 
-  @create_attrs %{body: "some body", username: "some username", likes_count: 42, reposts_count: 42}
-  @update_attrs %{body: "some updated body", username: "some updated username", likes_count: 43, reposts_count: 43}
+  @create_attrs %{
+    body: "some body",
+    username: "some username",
+    likes_count: 42,
+    reposts_count: 42
+  }
+  @update_attrs %{
+    body: "some updated body",
+    username: "some updated username",
+    likes_count: 43,
+    reposts_count: 43
+  }
   @invalid_attrs %{body: nil, username: nil, likes_count: nil, reposts_count: nil}
 
   defp create_post(_) do
