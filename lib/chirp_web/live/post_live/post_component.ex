@@ -12,21 +12,21 @@ defmodule ChirpWeb.PostLive.PostComponent do
           <div class="post-avatar"></div>
         </div>
         <div class="column column-90 post-body">
-          <b>@<%= @post.username %></b>
+          <b>@{@post.username}</b>
           <br />
-          <%= @post.body %>
+          {@post.body}
         </div>
       </div>
 
       <div class="row">
         <div class="column">
           <a href="#" phx-click="like" phx-target={@myself}>
-            <i class="far fa-heart"></i> <%= @post.likes_count %>
+            <i class="far fa-heart"></i> {@post.likes_count}
           </a>
         </div>
         <div class="column">
           <a href="#" phx-click="repost" phx-target={@myself}>
-            <i class="far fa-retweet"></i> <%= @post.reposts_count %>
+            <i class="far fa-retweet"></i> {@post.reposts_count}
           </a>
         </div>
         <div class="column">

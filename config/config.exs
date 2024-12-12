@@ -14,7 +14,7 @@ config :chirp,
 # Configures the endpoint
 config :chirp, ChirpWeb.Endpoint,
   url: [host: "localhost"],
-  adapter: Phoenix.Endpoint.Cowboy2Adapter,
+  adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: ChirpWeb.ErrorHTML, json: ChirpWeb.ErrorJSON],
     layout: false
